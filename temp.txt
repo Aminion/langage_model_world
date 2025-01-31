@@ -1,0 +1,27 @@
+# RawMessage(role="system", content="Format answer as strict JSON. Imagine the world (note there is no civilization) based on given keywords and provide scientific description of following groups: climate(temperature range, atmosphere, wind rose); geography(geology, soil, relief, insolation, hydration); biosphere(vegetation, animals, habitats). Pay attention to make description logical and not controversial." ),
+
+'''     [
+           RawMessage(role="system", content= sys_phrase), 
+           RawMessage(role="user", content=("Describe: atmospheric composition as list of gases and their percentage")),
+        ],
+        [
+           RawMessage(role="system", content=sys_phrase ), 
+           RawMessage(role="user", content=("Describe: temperature range during as two numbers min and max")),
+        ],
+        [
+           RawMessage(role="system", content=sys_phrase ), 
+           RawMessage(role="user", content=("Describe: wind rose as list of direction and corresponding speed")),
+        ],
+        [
+           RawMessage(role="system", content=sys_phrase ), 
+           RawMessage(role="user", content=("Describe: list of minerals and ores, and their percent in soil mass")),
+        ],
+        [
+           RawMessage(role="system", content=sys_phrase ), 
+           RawMessage(role="user", content=("Describe: list of soil types and their percentage")),
+        ],
+        [
+           RawMessage(role="system", content=sys_phrase ), 
+           RawMessage(role="user", content=("Describe: lake density in percents per square kilometer of territory")),
+        ],
+'''

@@ -23,23 +23,16 @@ def run_main(
 
     dialogs = [
         [
-           RawMessage(role="system", content= sys_phrase), 
-           RawMessage(role="user", content=("replace VALUE in { min : VALUE , max : VALUE } with temperature limits of the world")),
-        ],
-        [
-           RawMessage(role="system", content= sys_phrase), 
-           RawMessage(role="user", content=("replace VALUE in { north : VALUE, west : VALUE, south : VALUE, west : VALUE } with numbers describing wind rose in meters per second")),
-        ],
-        [
-           RawMessage(role="system", content= sys_phrase), 
-           RawMessage(role="user", content=("replace VALUE in { soil_types : VALUE } with list of {type: TOPSOIL , percentage : PERCENTAGE} where TOPSOIL is topsoil type (sand, clay, silt, peat, chalk, loam) and PERCENTAGE is percentage of soil type in the world. Do not repeat topsoil types.")),
-        ],
-                [
-           RawMessage(role="system", content= sys_phrase), 
-           RawMessage(role="user", content=("replace VALUE in { ores_and_minerals : VALUE } with list of 10 elements of {name: NAME , percentage : PERCENTAGE} where NAME is ether mineral or ore; PERCENTAGE is percentage of it in the soil.")),
+            RawMessage(role="system", content=sys_phrase),
+            RawMessage(
+                role="user",
+                content=(
+                    "Imagine bioms of this world. For each biom select words that match biom from following list['meadow', 'some trees', 'forest', 'flowers', 'rock', 'cliff', 'dune', 'river', 'lake', 'shore', 'hill']. Answer is [BIOM1, BIOM2,...] where BIOM is [WORD1,WORD2,...] (JSON list of lists). Arrange bioms in answer according to neighbor bioms in world"
+                ),
+            ),
         ],
     ]
-    
+
     for dialog in dialogs:
         result = generator.chat_completion(
             dialog,
@@ -56,11 +49,9 @@ def run_main(
         print("\n==================================\n")
 
 
-
 def main():
     fire.Fire(run_main)
 
 
 if __name__ == "__main__":
     main()
-

@@ -25,3 +25,40 @@
            RawMessage(role="user", content=("Describe: lake density in percents per square kilometer of territory")),
         ],
 '''
+
+        [
+            RawMessage(role="system", content=sys_phrase),
+            RawMessage(
+                role="user",
+                content=(
+                    "replace VALUE in { min : VALUE , max : VALUE } with temperature limits of the world"
+                ),
+            ),
+        ],
+        [
+            RawMessage(role="system", content=sys_phrase),
+            RawMessage(
+                role="user",
+                content=(
+                    "replace VALUE in { north : VALUE, west : VALUE, south : VALUE, west : VALUE } with numbers describing wind rose in meters per second"
+                ),
+            ),
+        ],
+        [
+            RawMessage(role="system", content=sys_phrase),
+            RawMessage(
+                role="user",
+                content=(
+                    "replace VALUE in { soil_types : VALUE } with list of {type: TOPSOIL , percentage : PERCENTAGE} where TOPSOIL is topsoil type (sand, clay, silt, peat, chalk, loam) and PERCENTAGE is percentage of soil type in the world. Do not repeat topsoil types."
+                ),
+            ),
+        ],
+        [
+            RawMessage(role="system", content=sys_phrase),
+            RawMessage(
+                role="user",
+                content=(
+                    "replace VALUE in { ores_and_minerals : VALUE } with list of 10 elements of {name: NAME , percentage : PERCENTAGE} where NAME is ether mineral or ore; PERCENTAGE is percentage of it in the soil."
+                ),
+            ),
+        ],

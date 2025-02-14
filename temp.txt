@@ -62,3 +62,6 @@
                 ),
             ),
         ],
+
+"Imagine bioms of this world. Keep in mind that bioms should fit the general idea of world. For each biom select words that match biom from following list['meadow', 'some trees', 'forest', 'flowers', 'rock', 'cliff', 'dune', 'river', 'lake', 'shore', 'hill']. Answer is [BIOM1, BIOM2,...] where BIOM is [WORD1,WORD2,...] (JSON list of lists). Arrange bioms in answer according to neighbor bioms in world"
+                ),

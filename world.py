@@ -19,7 +19,7 @@ def run_main(
         max_batch_size=max_batch_size,
         model_parallel_size=model_parallel_size,
     )
-    sys_phrase = "Format answer as JSON expression. Imagine the world (note there is no civilization) based on following keywords: worm grab spoon beef sand search dune bulb dry apocalyptic violin orange"
+    sys_phrase = "Format answer as JSON expression. Imagine the world (note there is no civilization) based on following keywords: worm grab spoon beef sand search dune bulb dry apocalyptic violin orange; do not use those keywords further in answers, they only for initial imaginary"
 
     dialogs = [
         [
@@ -27,7 +27,12 @@ def run_main(
             RawMessage(
                 role="user",
                 content=(
-                    "Imagine bioms of this world. For each biom select words that match biom from following list['meadow', 'some trees', 'forest', 'flowers', 'rock', 'cliff', 'dune', 'river', 'lake', 'shore', 'hill']. Answer is [BIOM1, BIOM2,...] where BIOM is [WORD1,WORD2,...] (JSON list of lists). Arrange bioms in answer according to neighbor bioms in world"
+                    
+                    "Provide 5 JSON objects like: {biom_id: BIOM_ID, features: ['FEATURE', ...], paths : [{other_biom_id: OTHER_BIOM_ID, path : PATH}, ...]}."
+                    "Where: BIOM_ID is unique integer identifier of biom;"
+                    "FEATURES is one or many words from list [trees, flowers, dunes, cliff, hill, stones] that fits to current biom;"
+                    "OTHER_BIOM_ID is one of generated BIOM_ID;"
+                    "PATH is one of worlds from list [by the river, down the hill, across the lake, across the river, down the valley] describing the way to current biom from other; "
                 ),
             ),
         ],
